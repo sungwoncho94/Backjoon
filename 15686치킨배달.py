@@ -48,13 +48,25 @@ for i in range(N):
 combination_list = list(combinations(chicken_list, M))
 # [((0, 1), (3, 0)), ((0, 1), (4, 0)), ((0, 1), (4, 1)), ((0, 1), (4, 4)), ((3, 0), (4, 0)), ((3, 0), (4, 1)), ((3, 0), (4, 4)), ((4, 0), (4, 1)), ((4, 0), (4, 4)), ((4, 1), (4, 4))]
 
-min_dist = 9999
-for comb in combination_list:  # ((0, 1), (3, 0))
+min_dist = 0
+result = 9999999
+for comb in combination_list:  # ((0, 1), (3, 0))  // N개의 치킨집 고른 것
+    print('comb', comb)
     for home_xy in home_list:  # [(0, 3), (1, 0), (1, 2), (3, 3), (3, 4), (4, 3)]
-        temp_dist = 0
-        for chic_xy in comb:  # (0, 1) , (3, 0)
-            
-
+        print('home', home_xy)
+        temp_dist = 9999
+        for chic_xy in comb:  # (0, 1) / (3, 0)
+            print('home', home_xy, 'chicken', chic_xy)
+            # 집 하나마다(home_xy) 거리가 짧은 치킨집이 정해짐
+            if dist(home_xy, chic_xy) < temp_dist:
+                temp_dist = dist(home_xy, chic_xy)
+                print(temp_dist)
+        # list의 치킨집 중 거리가 짧은 치킨집이 구해지면 그걸 더한다
+        min_dist += temp_dist
+        print('min_dist', min_dist)
+    if result > min_dist:
+        result = min_dist
+print(result)
 
 '''
 하고싶은 것
