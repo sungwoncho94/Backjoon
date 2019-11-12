@@ -27,125 +27,60 @@ def printmat(matrix):
         print(matrix[n])
     print('--------------------')
 
+def right(x, y):
+    global matrix
+    global change
+    while in_range(x, y):
+        y += 1
+        # 0일때만 감시지역으로 바꾸고, CCTV일때는 그냥 지나간다
+        if matrix[x][y] == 0:
+            matrix[x][y] = '#'
+        change += 1
+
+def left(x, y):
+    global matrix
+    global change
+    while in_range(x, y):
+        y -= 1
+        # 0일때만 감시지역으로 바꾸고, CCTV일때는 그냥 지나간다
+        if matrix[x][y] == 0:
+            matrix[x][y] = '#'
+        change += 1
+
+def up(x, y):
+    global matrix
+    global change
+    while in_range(x, y):
+        x -= 1
+        # 0일때만 감시지역으로 바꾸고, CCTV일때는 그냥 지나간다
+        if matrix[x][y] == 0:
+            matrix[x][y] = '#'
+        change += 1
+
+def down(x, y):
+    global matrix
+    global change
+    while in_range(x, y):
+        x += 1
+        # 0일때만 감시지역으로 바꾸고, CCTV일때는 그냥 지나간다
+        if matrix[x][y] == 0:
+            matrix[x][y] = '#'
+        change += 1
+
+# 그냥 처음부터 다시 생각해서 풀자
+
 
 # CCTV and direct 함수 설정
 def find_BS(x, y):
     global matrix
     global change
     if CCTV_num == 1:
-        print("1로 들어옴")
-        # 오른쪽으로 전진
-        if direct_num == 1:
-            while in_range(x, y):
-                if matrix[x][y] == 0:
-                    matrix[x][y] = "#"
-                    change += 1
-                    y += 1
 
-        # 아래로 전진
-        elif direct_num == 2:
-            while in_range(x, y):
-                if matrix[x][y] == 0:
-                    matrix[x][y] = "#"
-                    change += 1
-                    x += 1
-
-        # 왼쪽으로 전진
-        elif direct_num == 3:
-            while in_range(x, y):
-                if matrix[x][y] == 0:
-                    matrix[x][y] = "#"
-                    change += 1
-                    y -= 1
-
-        # 위로 전진
-        elif direct_num == 4:
-            while in_range(x, y):
-                if matrix[x][y] == 0:
-                    matrix[x][y] = "#"
-                    change += 1
-                    x -= 1
 
     elif CCTV_num == 2:
-        print("2로 들어옴")
-        x1 = x2 = x
-        y1 = y2 = y
-        # 오/왼으로 가기
-        if direct_num == 1:
-            # 둘 다 범위에 없을때 끝내기 (하나라도 범위에 있으면 계속돌려)
-            while in_range(x1, y1) or in_range(x2, y2):
-                if matrix[x1][y1] == 0:
-                    matrix[x1][y1] = "#"
-                    change += 1
-                    y += 1
-                if matrix[x2][y2] == 0:
-                    matrix[x2][y2] = "#"
-                    change += 1
-                    y -= 1
-        # 위/아래로 가기
-        elif direct_num == 2:
-            while in_range(x1, y1) or in_range(x2, y2):
-                if matrix[x1][y1] == 0:
-                    matrix[x1][y1] = "#"
-                    change += 1
-                    x += 1
-                if matrix[x2][y2] == 0:
-                    matrix[x2][y2] = "#"
-                    change += 1
-                    x -= 1
-
-
+        
     elif CCTV_num == 3:
-        print("3으로 들어옴")
-        x1 = x2 = x
-        y1 = y2 = y
-        # 위/오른쪽
-        if direct_num == 1:
-            while in_range(x1, y1) or in_range(x2, y2):
-                if matrix[x1][y1] == 0:
-                    matrix[x1][y1] = "#"
-                    change += 1
-                    x -= 1
-                if matrix[x2][y2] == 0:
-                    matrix[x2][y2] = "#"
-                    change += 1
-                    y += 1
-
-        # 오른쪽/아래
-        elif direct_num == 2:
-            while in_range(x1, y1) or in_range(x2, y2):
-                if matrix[x1][y1] == 0:
-                    matrix[x1][y1] = "#"
-                    change += 1
-                    y += 1
-                if matrix[x2][y2] == 0:
-                    matrix[x2][y2] = "#"
-                    change += 1
-                    x += 1
-
-        # 아래/왼쪽
-        elif direct_num == 3:
-            while in_range(x1, y1) or in_range(x2, y2):
-                if matrix[x1][y1] == 0:
-                    matrix[x1][y1] = "#"
-                    change += 1
-                    x += 1
-                if matrix[x2][y2] == 0:
-                    matrix[x2][y2] = "#"
-                    change += 1
-                    y -= 1
-
-        # 왼쪽/위
-        elif direct_num == 4:
-            while in_range(x1, y1) or in_range(x2, y2):
-                if matrix[x1][y1] == 0:
-                    matrix[x1][y1] = "#"
-                    change += 1
-                    x -= 1
-                if matrix[x2][y2] == 0:
-                    matrix[x2][y2] = "#"
-                    change += 1
-                    y -= 1
+        
 
     elif CCTV_num == 4:
         print("4로 들어옴")
@@ -155,6 +90,7 @@ def find_BS(x, y):
 
         # 왼, 위, 오
         if direct_num == 1:
+
             while in_range(x1, y1) or in_range(x2, y2) or in_range(x3, y3):
                 x1 -= 1
                 if in_range(x1, y1) and matrix[x1][y1] == 0:
