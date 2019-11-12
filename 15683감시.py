@@ -27,6 +27,7 @@ def printmat(matrix):
         print(matrix[n])
     print('--------------------')
 
+<<<<<<< HEAD
 def right(x, y):
     global matrix
     global change
@@ -69,18 +70,136 @@ def down(x, y):
 
 # 그냥 처음부터 다시 생각해서 풀자
 
+=======
+>>>>>>> 6264e4381a19a558ff6f8af6fb15e4ac4c216b41
 
 # CCTV and direct 함수 설정
 def find_BS(x, y):
     global matrix
     global change
     if CCTV_num == 1:
+<<<<<<< HEAD
 
 
     elif CCTV_num == 2:
         
     elif CCTV_num == 3:
         
+=======
+        print("1로 들어옴")
+        # 오른쪽으로 전진
+        if direct_num == 1:
+            while in_range(x, y):
+                if matrix[x][y] == 0:
+                    matrix[x][y] = "#"
+                    change += 1
+                    y += 1
+
+        # 아래로 전진
+        elif direct_num == 2:
+            while in_range(x, y):
+                if matrix[x][y] == 0:
+                    matrix[x][y] = "#"
+                    change += 1
+                    x += 1
+
+        # 왼쪽으로 전진
+        elif direct_num == 3:
+            while in_range(x, y):
+                if matrix[x][y] == 0:
+                    matrix[x][y] = "#"
+                    change += 1
+                    y -= 1
+
+        # 위로 전진
+        elif direct_num == 4:
+            while in_range(x, y):
+                if matrix[x][y] == 0:
+                    matrix[x][y] = "#"
+                    change += 1
+                    x -= 1
+
+    elif CCTV_num == 2:
+        print("2로 들어옴")
+        x1 = x2 = x
+        y1 = y2 = y
+        # 오/왼으로 가기
+        if direct_num == 1:
+            # 둘 다 범위에 없을때 끝내기 (하나라도 범위에 있으면 계속돌려)
+            while in_range(x1, y1) or in_range(x2, y2):
+                if matrix[x1][y1] == 0:
+                    matrix[x1][y1] = "#"
+                    change += 1
+                    y += 1
+                if matrix[x2][y2] == 0:
+                    matrix[x2][y2] = "#"
+                    change += 1
+                    y -= 1
+        # 위/아래로 가기
+        elif direct_num == 2:
+            while in_range(x1, y1) or in_range(x2, y2):
+                if matrix[x1][y1] == 0:
+                    matrix[x1][y1] = "#"
+                    change += 1
+                    x += 1
+                if matrix[x2][y2] == 0:
+                    matrix[x2][y2] = "#"
+                    change += 1
+                    x -= 1
+
+
+    elif CCTV_num == 3:
+        print("3으로 들어옴")
+        x1 = x2 = x
+        y1 = y2 = y
+        # 위/오른쪽
+        if direct_num == 1:
+            while in_range(x1, y1) or in_range(x2, y2):
+                if matrix[x1][y1] == 0:
+                    matrix[x1][y1] = "#"
+                    change += 1
+                    x -= 1
+                if matrix[x2][y2] == 0:
+                    matrix[x2][y2] = "#"
+                    change += 1
+                    y += 1
+
+        # 오른쪽/아래
+        elif direct_num == 2:
+            while in_range(x1, y1) or in_range(x2, y2):
+                if matrix[x1][y1] == 0:
+                    matrix[x1][y1] = "#"
+                    change += 1
+                    y += 1
+                if matrix[x2][y2] == 0:
+                    matrix[x2][y2] = "#"
+                    change += 1
+                    x += 1
+
+        # 아래/왼쪽
+        elif direct_num == 3:
+            while in_range(x1, y1) or in_range(x2, y2):
+                if matrix[x1][y1] == 0:
+                    matrix[x1][y1] = "#"
+                    change += 1
+                    x += 1
+                if matrix[x2][y2] == 0:
+                    matrix[x2][y2] = "#"
+                    change += 1
+                    y -= 1
+
+        # 왼쪽/위
+        elif direct_num == 4:
+            while in_range(x1, y1) or in_range(x2, y2):
+                if matrix[x1][y1] == 0:
+                    matrix[x1][y1] = "#"
+                    change += 1
+                    x -= 1
+                if matrix[x2][y2] == 0:
+                    matrix[x2][y2] = "#"
+                    change += 1
+                    y -= 1
+>>>>>>> 6264e4381a19a558ff6f8af6fb15e4ac4c216b41
 
     elif CCTV_num == 4:
         print("4로 들어옴")
@@ -90,7 +209,10 @@ def find_BS(x, y):
 
         # 왼, 위, 오
         if direct_num == 1:
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6264e4381a19a558ff6f8af6fb15e4ac4c216b41
             while in_range(x1, y1) or in_range(x2, y2) or in_range(x3, y3):
                 x1 -= 1
                 if in_range(x1, y1) and matrix[x1][y1] == 0:
