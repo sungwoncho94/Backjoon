@@ -1,4 +1,7 @@
 N, M = map(int, input().split())
+# N = 숫자 개수
+# M = 수열 길이 수 
+
 
 # visit이 있는 DFS처럼 풀어보자!!!
 number_list = []
