@@ -33,26 +33,10 @@ def check_down(x, y):
         if matrix[x+1][y] == 0:
             return True
 
-
-# 방향에 따라서 회전하고, 청소하는 로직부터 짠 후 -> 함수로 만들자
-# 청소는 위에서 공통적으로 할 것!!
-# 4 방향을 각각 flag0 ~ flag3으로 나타내어 벽, 청소가능한지 여부 판단
-# -> 나갈 방향이 없으면(모든 flag가 0이면) 후진
-# --> 후진도 할 수 없는 경우에는 stop
-
 def cleaning(x, y, d):
     global cleaned_room, matrix, flag, dir_check
 
     while flag == 1:
-        # print('-------------------------')
-        # print('check_list', dir_check)
-        # print('result', cleaned_room)
-        # print('x', x, 'y', y, 'd', d)
-        # print_mat(matrix)
-        # 회전했거나, 이동했거나, 후진한 경우 dir_check를 계속 초기화해줘야함
-        # dir_check = [0, 0, 0, 0]
-        # 청소하는 로직은 가장 위로 빼놔서 항상 실행되게하자
-        # 0일 경우에만 청소가능 (1인 경우에는 못감 / 8인경우에는 이미 청소됨)
         if matrix[x][y] == 0:
             matrix[x][y] = 8
             cleaned_room += 1
@@ -144,37 +128,6 @@ def cleaning(x, y, d):
                     y = y+1
                     dir_check = [0, 0, 0, 0]
                     continue
-
-
-
-
-
-            #     # 뒤가 벽이 아닐 때
-            #     if 0<= x+1 < N and 0 <= y < M and matrix[x+1][y] != 1:
-            #         x = x+1
-            #         dir_check = [0, 0, 0, 0]
-            #     # 후진할 수 없는 경우에는 끝냄
-            #     else:
-            #         flag = 0
-            # elif d == 1:
-            #     if check_left(x, y) == True:
-            #         y = y-1
-            #         dir_check = [0, 0, 0, 0]
-            #     else:
-            #         flag = 0
-            # elif d == 2:
-            #     if check_up(x, y) == True:
-            #         x = x-1
-            #         dir_check = [0, 0, 0, 0]
-            #     else:
-            #         flag = 0
-            # else:
-            #     if check_right(x, y) == True:
-            #         y = y+1
-            #         dir_check = [0, 0, 0, 0]
-            #     else:
-            #         flag = 0
-
 
 cleaning(x, y, d)
 print(cleaned_room)
