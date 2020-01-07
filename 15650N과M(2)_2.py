@@ -19,8 +19,7 @@ def combination(N, M):
     for i in range(1, N+1):
         if visit[i] == 0 and i > max_num:
             result.append(i)
-            if i > max_num:
-                max_num = i
+            max_num = i
             visit[i] = 1
             combination(N, M)
             visit[i] = 0
